@@ -17,20 +17,20 @@ const timezoneData = await timezoneResponse.json();
 const localTime = new Date(timezoneData.formatted);
 
 const options = {
-        year: 'numeric',    // Adds the year (e.g., 2025)
-        month: 'long',      // Adds the full month name (e.g., February)
-        day: 'numeric',     // Adds the day of the month (e.g., 14)
-        hour: 'numeric',    // Adds the hour (e.g., 3 PM)
-        minute: '2-digit',  // Adds the minute (e.g., 30)
-        timeZoneName: 'short', // Includes the timezone (e.g., EST)
-        hour12: true        // Formats time in 12-hour format (AM/PM)
+        year: 'numeric',
+        month: 'long', 
+        day: 'numeric', 
+        hour: 'numeric', 
+        minute: '2-digit',
+        timeZoneName: 'short', 
+        hour12: true
 };
 
 let formattedTime = localTime.toLocaleTimeString('en-CA', options);
 formattedTime = formattedTime.replace(/a\.m\./gi, "AM").replace(/p\.m\./gi, "PM");
 ---
 
-<BaseLayout title="Jason Shew's Website">
+<BaseLayout title="Jason Shew">
   <section id="welcome">
             <div class="hero-container">
                 <img src="/images/hero.jpeg" alt="Hero Image of Jason" class="hero-image">
@@ -39,7 +39,7 @@ formattedTime = formattedTime.replace(/a\.m\./gi, "AM").replace(/p\.m\./gi, "PM"
                     </h2>
                     <p>Hey, I’m Jason, a Canadian guy currently in {currentLocation.city}, {currentLocation.state}, {currentLocation.country}.
                     Right now,
-                    it's {formattedTime} where I am. It feels like {feelslike_c} ({feelslike_f}) outside, while the actual temperature is {temperature_c} ({temperature_f}). "{condition} for the next little while," said our local weatherman.
+                    it's {localTime} where I am. It feels like {feelslike_c}°C ({feelslike_f}°F) outside; the actual temperature is {temperature_c}°C ({temperature_f}°F). "{condition} for the next little while," said our local weatherman.
 <br>
                     <p>Don't know me at all? You may want to start with this <a href="/about">About Me</a> page.</p>
 <br>
