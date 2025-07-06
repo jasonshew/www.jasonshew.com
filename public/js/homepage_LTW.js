@@ -4,6 +4,8 @@ const timeDiv = document.getElementById('mylocaltime');
 timeDiv.innerHTML = `another beautiful day`;
 const weatherDiv = document.getElementById('mylocalweather');
 weatherDiv.innerHTML = `Our weatherman seems to be scrambling for his cue cards...`;
+const weatherAPIKey = window.weatherAPIKey;
+const timeAPIKey = window.timeAPIKey;
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -56,9 +58,6 @@ async function fetchWeather(lat, lon) {
     }
 
     try {
-        // Fetch the API key from Astro environment variables
-        const weatherAPIKey = window.weatherAPIKey;
-
         // Fetch the weather data
         const weatherResponse = await fetch(`https://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${lat},${lon}`);
         const weatherData = await weatherResponse.json();
@@ -97,9 +96,7 @@ async function displayLocalTime(lat, lon) {
     }
 
     try {
-        
-        // Fetch the API key from Astro environment variables
-        const timeAPIKey = window.timeAPIKey;
+    
 
         // Fetch the timezone data based on lat and lon
         const timezoneResponse = await fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${timeAPIKey}&format=json&by=position&lat=${lat}&lng=${lon}`);
