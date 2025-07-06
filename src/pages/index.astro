@@ -71,7 +71,8 @@ const timezoneResponse = await fetch(
 
 const timezoneData = await timezoneResponse.json();
 const timezone = timezoneData.zoneName;
-const timestamp = timezoneData.timestamp; // always in UTC
+const timestamp = timezoneData.timestamp;
+const offset = timezoneData.gmtOffset;
 
 const options = {
   year: 'numeric',
@@ -85,7 +86,7 @@ const options = {
 };
 
 // Apply the formatting directly from UTC timestamp
-let formattedTime = new Date(timestamp * 1000).toLocaleString('en-CA', options);
+let formattedTime = new Date((timestamp + gmtOffset) * 1000).toLocaleString('en-CA', options);
 
 // Clean up AM/PM casing if desired
 formattedTime = formattedTime.replace(/a\.m\./gi, "AM").replace(/p\.m\./gi, "PM");
