@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import checkins from '../data/homepage_location.json';
+import location from '../data/homepage_location.json';
 
-const currentLocation = checkins[0] ?? { lat: 43.65, lon: -79.38, city: "Toronto", state: "ON", country: "Canada" };
+const currentLocation = location ?? { lat: 43.65, lon: -79.38, city: "Toronto", state: "ON", country: "Canada" };
 
 const weatherResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.WEATHERAPI_API_KEY}&q=${currentLocation.lat},${currentLocation.lon}`);
 const weatherData = await weatherResponse.json();
