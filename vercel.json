@@ -26,8 +26,6 @@
     { "source": "/x", "destination": "https://x.com", "permanent": true },
     { "source": "/_x_", "destination": "https://x.com/intent/follow?user_id=18420556", "permanent": true },
     { "source": "/whatsapp", "destination": "https://wa.me/message/RT6UOYRWNVZ3M1", "permanent": true },
-    { "source": "/wishlist", "destination": "https://www.amazon.ca/hz/wishlist/ls/6OIWNJ98GY6M", "permanent": true },
-  
-    { "source": "/:path*/", "destination": "/:path*", "permanent": true }
-  ]
+    { "source": "/wishlist", "destination": "https://www.amazon.ca/hz/wishlist/ls/6OIWNJ98GY6M", "permanent": true }
+    ]
 }
