@@ -65,23 +65,29 @@ const feelslike_c = weatherData.current.feelslike_c;
 const feelslike_f = weatherData.current.feelslike_f;
 const condition = weatherData.current.condition.text;
 
-const timezoneResponse = await fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${import.meta.env.TIMEZONEDB_API_KEY}&format=json&by=position&lat=${currentLocation.lat}&lng=${currentLocation.lon}`);
+const timezoneResponse = await fetch(
+  `https://api.timezonedb.com/v2.1/get-time-zone?key=${import.meta.env.TIMEZONEDB_API_KEY}&format=json&by=position&lat=${currentLocation.lat}&lng=${currentLocation.lon}`
+);
+
 const timezoneData = await timezoneResponse.json();
 const timezone = timezoneData.zoneName;
-const timestamp = timezoneData.timestamp;
-const localTime = new Date(timestamp * 1000);
+const timestamp = timezoneData.timestamp; // always in UTC
+
 const options = {
-        year: 'numeric',
-        month: 'long', 
-        day: 'numeric', 
-        hour: 'numeric', 
-        minute: '2-digit',
-        timeZone: timezone,
-        timeZoneName: 'short',
-        hour12: true
+  year: 'numeric',
+  month: 'long', 
+  day: 'numeric', 
+  hour: 'numeric', 
+  minute: '2-digit',
+  timeZone: timezone,        // apply the correct zone here
+  timeZoneName: 'short',
+  hour12: true
 };
 
-let formattedTime = localTime.toLocaleTimeString('en-CA', options);
+// Apply the formatting directly from UTC timestamp
+let formattedTime = new Date(timestamp * 1000).toLocaleString('en-CA', options);
+
+// Clean up AM/PM casing if desired
 formattedTime = formattedTime.replace(/a\.m\./gi, "AM").replace(/p\.m\./gi, "PM");
 ---
 
