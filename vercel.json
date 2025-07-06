@@ -30,26 +30,5 @@
     
     { "source": "/:path*.html", "destination": "/:path*", "permanent": true },
     { "source": "/:path*/", "destination": "/:path*", "permanent": true }
-  ],
-  "headers": [
-    {
-      "source": "/:file*.json",
-      "headers": [
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Cache-Control", "value": "public, max-age=60" }
-      ]
-    },
-    {
-      "source": "/:file((^|/)\\..*)",
-      "headers": [
-        { "key": "x-robots-tag", "value": "noindex, nofollow" }
-      ]
-    }
-  ],
-  "middleware": [
-    {
-      "path": "/(.*)",
-      "middlewarePath": "middleware/enforce-www-and-https"
-    }
   ]
 }
