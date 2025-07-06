@@ -56,12 +56,8 @@ async function fetchWeather(lat, lon) {
     }
 
     try {
-        // Fetch the API key with cache busting
-        const apiKeyResponse = await fetch(`https://www.jasonshew.com/func/proxy.php?action=weatherapi_api_key&cacheBust=${new Date().getTime()}`, {
-            cache: 'no-cache'
-        });
-        const apiKeyData = await apiKeyResponse.json();
-        const apiKey = apiKeyData.api_key;
+        // Fetch the API key from Astro environment variables
+        const apiKey = import.meta.env.WEATHERAPI_API_KEY;
 
         // Fetch the weather data
         const weatherResponse = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}`);
@@ -102,12 +98,8 @@ async function displayLocalTime(lat, lon) {
 
     try {
         
-        // Fetch the API key with cache busting
-        const apiKeyResponse = await fetch(`https://www.jasonshew.com/func/proxy.php?action=timezonedb_api_key&cacheBust=${new Date().getTime()}`, {
-          cache: 'no-cache'
-        });
-        const apiKeyData = await apiKeyResponse.json();
-        const apiKey = apiKeyData.api_key;
+        // Fetch the API key from Astro environment variables
+        const apiKey = import.meta.env.TIMEZONEDB_API_KEY;
 
         // Fetch the timezone data based on lat and lon
         const timezoneResponse = await fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${lat}&lng=${lon}`);
