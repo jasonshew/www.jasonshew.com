@@ -86,7 +86,7 @@ const options = {
 };
 
 // Apply the formatting directly from UTC timestamp
-let formattedTime = new Date((timestamp + gmtOffset) * 1000).toLocaleString('en-CA', options);
+let formattedTime = new Date((timestamp - gmtOffset) * 1000).toLocaleString('en-CA', options);
 
 // Clean up AM/PM casing if desired
 formattedTime = formattedTime.replace(/a\.m\./gi, "AM").replace(/p\.m\./gi, "PM");
