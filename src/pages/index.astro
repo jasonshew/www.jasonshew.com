@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import checkins from '../data/homepage_location.json';
-
+const weatherAPIKey = import.meta.env.WEATHERAPI_API_KEY;
+const timeAPIKey = import.meta.env.TIMEZONEDB_API_KEY;
 ---
 
 <BaseLayout title="Jason Shew's Website">
@@ -41,6 +42,6 @@ Oh—and one more thing. This is my personal website. All content here and on <a
 
             </div>
         </section>
-            <script src="/js/homepage_LTW.js" defer></script>
+            <script src="/js/homepage_LTW.js" type="module" defer></script>
 
 </BaseLayout>

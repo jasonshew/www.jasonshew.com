@@ -57,10 +57,10 @@ async function fetchWeather(lat, lon) {
 
     try {
         // Fetch the API key from Astro environment variables
-        const apiKey = import.meta.env.WEATHERAPI_API_KEY;
+        // const weatherAPIKey = import.meta.env.WEATHERAPI_API_KEY;
 
         // Fetch the weather data
-        const weatherResponse = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}`);
+        const weatherResponse = await fetch(`https://api.weatherapi.com/v1/current.json?key=${weatherAPIKey}&q=${lat},${lon}`);
         const weatherData = await weatherResponse.json();
 
         // Display the weather data
@@ -99,10 +99,10 @@ async function displayLocalTime(lat, lon) {
     try {
         
         // Fetch the API key from Astro environment variables
-        const apiKey = import.meta.env.TIMEZONEDB_API_KEY;
+        // const timeAPIKey = import.meta.env.TIMEZONEDB_API_KEY;
 
         // Fetch the timezone data based on lat and lon
-        const timezoneResponse = await fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${lat}&lng=${lon}`);
+        const timezoneResponse = await fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${timeAPIKey}&format=json&by=position&lat=${lat}&lng=${lon}`);
         const timezoneData = await timezoneResponse.json();
 
         if (timezoneData.status === 'FAILED') {
