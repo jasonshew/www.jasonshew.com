@@ -4,6 +4,59 @@ import location from '../data/homepage_location.json';
 
 const currentLocation = location ?? { lat: 43.65, lon: -79.38, city: "Toronto", state: "ON", country: "Canada" };
 
+let country = currentLocation.country;
+switch (country) {
+    case 'Canada':
+        country = 'Canada 🇨🇦';
+        break;
+    case 'United States':
+    case 'USA':
+    case 'US':
+        country = 'United States 🇺🇸';
+        break;
+    case 'United Kingdom':
+    case 'UK':
+        country = 'United Kingdom 🇬🇧';
+        break;
+    case 'Australia':
+        country = 'Australia 🇦🇺';
+        break;
+    case 'France':
+        country = 'France 🇫🇷';
+        break;
+    case 'Germany':
+        country = 'Germany 🇩🇪';
+        break;
+    case 'Japan':
+        country = 'Japan 🇯🇵';
+        break;
+    case 'China':
+        country = 'China 🇨🇳';
+        break;
+    case 'Mexico':
+        country = 'Mexico 🇲🇽';
+        break;
+    case 'Japan':
+        country = 'Japan 🇯🇵';
+        break;
+    case 'South Korea':
+        country = 'South Korea 🇰🇷';
+        break;
+    case 'Taiwan':
+        country = 'Taiwan 🇹🇼';
+        break;
+    case 'Hong Kong':
+        country = 'Hong Kong 🇭🇰';
+        break;
+    case 'Indonesia':
+        country = 'Indonesia 🇮🇩';
+        break;
+    // Add more countries as needed
+    
+    default:
+        break;
+}
+
 const weatherResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.WEATHERAPI_API_KEY}&q=${currentLocation.lat},${currentLocation.lon}`);
 const weatherData = await weatherResponse.json();
 const temperature_c = weatherData.current.temp_c;
