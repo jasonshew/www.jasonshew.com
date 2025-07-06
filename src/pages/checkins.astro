@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import checkins from '../data/recent_checkins.json';
+
+---
+
+<BaseLayout title="Check-ins :: Jason Shew">
+  <section>
+    <h2>Check-ins</h2>
+    <p>These are the 100 places I've recently checked into, beyond home, school, work, and regular hangouts.</p>
+        <div id="checkins-list"></div>
+    <span id="loading"></div>
+    <script src="/js/fetch_checkins.js" type="module"></script>
+  </section>
+</BaseLayout>

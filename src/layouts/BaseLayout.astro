@@ -1,0 +1,88 @@
+---
+const { title = "Jason Shew" } = Astro.props;
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <script>
+        // Apply theme immediately based on localStorage or system preference
+        (function() {
+            const storedTheme = localStorage.getItem('theme') || 'system';
+            let theme = storedTheme;
+            if (storedTheme === 'system') {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <script src="/js/main.js" defer></script>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="me" href="https://shew.cc/@jason" />
+    <link rel="me" href="https://github.com/jasonshew" />
+
+
+    <span class="h-card">
+        <link href="https://www.jasonshew.com/" class="u-url u-uid" />
+        <link href="https://jasonshew.ca/" rel="me" class="u-url" />
+        <link class="u-photo" href="https://www.jasonshew.com/images/avatar.jpeg" />
+        <span class="p-name" style="display: none;">Jason Shew</span>
+        <span class="p-note" style="display: none;">Hey there! I’m Jason, a Canadian guy currently in Southern Ontario, Canada 🇨🇦. In short, I’m an IT worker, lifelong learner, and flâneur. Technology, music, art, and food constitute my simple life.</span>
+    </span>
+</head>
+  <body>
+<header>
+        <div class="nav-container">
+            <div class="logo"><a href="/"><img src="/images/logo.png" alt="Site Logo">
+                    <span class="site-title">Jason Shew</span></a>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">☰</button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/#news">News</a></li>
+                    <li><a href="/blog" target="_blank" rel="noreferrer noopener nofollow">Blog⤴</a></li>
+                    <li><a href="/checkins">Check-ins</a></li>
+                    <li><a href="/tracks">Tracks</a></li>
+                    <li><a href="/linkbook">Linkbook</a></li>
+                    <li><a href="/uses">Uses</a></li>
+                    <li><a href="/connect">Connect</a></li>
+                </ul>
+            </nav>
+            <button class="toggle-btn" id="theme-toggle">🌓</button>
+        </div>
+    </header>
+    <main>
+    <div class="page-content">
+      <slot />
+    </div>
+    </main>
+        <div id="full" style="position:fixed; z-index:5; right:40px; bottom:15px; text-align:center; cursor:pointer;">
+        <a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+            <img class="logo-rotation" src="/images/topicon.svg" height="35" width="35" alt="Back to Top">
+        </a>
+        <script src="/js/gototop.js" type="text/javascript"></script>
+    </div>
+
+    <div class="site-footer">
+        © 2006 – <span id="year"></span> </span> Jason Shew<br>
+        🌎 www.jasonshew.com 𑗅 🇨🇦 jasonshew.ca<br>
+        <a href="https://xn--sr8hvo.ws/previous">←</a> An <a href="https://xn--sr8hvo.ws">IndieWeb Webring</a> 🕸💍 <a
+            href="https://xn--sr8hvo.ws/next">→</a><br>
+        <div style="display: flex; justify-content: center; align-items: center; height: 6vh;">
+            <a rel="license noopener noreferrer" target="_blank"
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img
+                    src="https://link.shew.cc/graphics/by-nc-nd.svg" alt="SVG Icon for Creative Commons"
+                    style="width: 5rem; height: auto;"></a>
+        </div>
+        All original content on this website is released under a <a rel="license noopener noreferrer" target="_blank"
+            href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons
+            Attribution-NonCommercial-NoDerivatives 4.0 International License.</a>
+    </div>
+  </body>
+</html>
