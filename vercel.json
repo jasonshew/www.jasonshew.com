@@ -144,7 +144,7 @@
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "null" },
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
-      }
+      ]
     }
   ]
 }
