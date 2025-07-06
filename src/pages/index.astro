@@ -68,8 +68,6 @@ const condition = weatherData.current.condition.text;
 const timezoneResponse = await fetch(`https://api.timezonedb.com/v2.1/get-time-zone?key=${import.meta.env.TIMEZONEDB_API_KEY}&format=json&by=position&lat=${currentLocation.lat}&lng=${currentLocation.lon}`);
 const timezoneData = await timezoneResponse.json();
 const localTime = new Date(timezoneData.formatted);
-const offsetSeconds = timezoneData.gmtOffset;
-const adjustedTime = new Date(localTime.getTime() + offsetSeconds * 1000);
 const options = {
         year: 'numeric',
         month: 'long', 
@@ -81,7 +79,7 @@ const options = {
         hour12: true
 };
 
-let formattedTime = adjustedTime.toLocaleTimeString('en-CA', options);
+let formattedTime = localTime.toLocaleTimeString('en-CA', options);
 formattedTime = formattedTime.replace(/a\.m\./gi, "AM").replace(/p\.m\./gi, "PM");
 ---
 
