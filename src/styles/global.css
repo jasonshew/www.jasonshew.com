@@ -52,7 +52,7 @@
     }
 }
 
-/* [data-theme="light"] {
+[data-theme="light"] {
     --bg-color: #ffffff;
     --text-color: #333333;
     --primary-color: #D52B1E;
@@ -90,7 +90,7 @@
     --shadow-color: #080604;
     --card-border-color: #111d02;
     --meta-color: #454545;
-} */
+}
 
 html {
     font-family: 'Helvetica Neue', Arial, sans-serif;
