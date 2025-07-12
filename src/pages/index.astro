@@ -2,95 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import location from '../data/homepage_location.json';
 
-const currentLocation = location ?? { lat: 43.65, lon: -79.38, city: "Toronto", state: "ON", country: "Canada" };
-
-let country = currentLocation.country;
-switch (country) {
-    case 'Canada':
-        country = 'Canada 🇨🇦';
-        break;
-    case 'United States':
-    case 'USA':
-    case 'US':
-        country = 'United States 🇺🇸';
-        break;
-    case 'United Kingdom':
-    case 'UK':
-        country = 'United Kingdom 🇬🇧';
-        break;
-    case 'Australia':
-        country = 'Australia 🇦🇺';
-        break;
-    case 'France':
-        country = 'France 🇫🇷';
-        break;
-    case 'Germany':
-        country = 'Germany 🇩🇪';
-        break;
-    case 'Japan':
-        country = 'Japan 🇯🇵';
-        break;
-    case 'China':
-        country = 'China 🇨🇳';
-        break;
-    case 'Mexico':
-        country = 'Mexico 🇲🇽';
-        break;
-    case 'Japan':
-        country = 'Japan 🇯🇵';
-        break;
-    case 'South Korea':
-        country = 'South Korea 🇰🇷';
-        break;
-    case 'Taiwan':
-        country = 'Taiwan 🇹🇼';
-        break;
-    case 'Hong Kong':
-        country = 'Hong Kong 🇭🇰';
-        break;
-    case 'Indonesia':
-        country = 'Indonesia 🇮🇩';
-        break;
-    // Add more countries as needed
-    
-    default:
-        break;
-}
-
-const weatherResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.WEATHERAPI_API_KEY}&q=${currentLocation.lat},${currentLocation.lon}`);
-const weatherData = await weatherResponse.json();
-const temperature_c = weatherData.current.temp_c;
-const temperature_f = weatherData.current.temp_f;
-const feelslike_c = weatherData.current.feelslike_c;
-const feelslike_f = weatherData.current.feelslike_f;
-const condition = weatherData.current.condition.text;
-
-const timezoneResponse = await fetch(
-  `https://api.timezonedb.com/v2.1/get-time-zone?key=${import.meta.env.TIMEZONEDB_API_KEY}&format=json&by=position&lat=${currentLocation.lat}&lng=${currentLocation.lon}`
-);
-
-const timezoneData = await timezoneResponse.json();
-const timezone = timezoneData.zoneName;
-const timestamp = timezoneData.timestamp;
-const offset = timezoneData.gmtOffset;
-const utcTime = timestamp - offset;
-
-const options = {
-  year: 'numeric',
-  month: 'long', 
-  day: 'numeric', 
-  hour: 'numeric', 
-  minute: '2-digit',
-  timeZone: timezone,
-  timeZoneName: 'short',
-  hour12: true
-};
-
-// Apply the formatting directly from UTC timestamp
-let formattedTime = new Date(utcTime * 1000).toLocaleString('en-CA', options);
-
-// Clean up AM/PM casing if desired
-formattedTime = formattedTime.replace(/a\.m\./gi, "AM").replace(/p\.m\./gi, "PM");
 ---
 
 <BaseLayout title="Jason Shew">
@@ -130,5 +41,6 @@ formattedTime = formattedTime.replace(/a\.m\./gi, "AM").replace(/p\.m\./gi, "PM"
 
             </div>
         </section>
+    <script src="https://api.shewtopia.com/jshewblogapi/fetch/fetch-homepage-location.js" type="module" crossorigin="anonymous"></script>
 
 </BaseLayout>
