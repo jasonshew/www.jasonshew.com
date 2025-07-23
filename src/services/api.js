@@ -5,15 +5,8 @@ const API_BASE = import.meta.env.VITE_API_BASE || 'https://api.shewtopia.com/jsh
 const api = axios.create({ baseURL: API_BASE });
 
 
-export const fetchCheckins = async () => {
-  const res = await api.get('/fetch-checkins.js');       
-  const payload = res.data;
-  // Ensure we always return an array
-  if (Array.isArray(payload)) return payload;
-  if (Array.isArray(payload?.data)) return payload.data;
-  if (Array.isArray(payload?.checkins)) return payload.checkins;
-  return []; // fallback
-};
+export const fetchCheckinsHTML = () =>
+  api.get('/fetch-checkins.js', { responseType: 'text' }).then(r => r.data);
 export const fetchLinkbook = () =>   api.get('/fetch-linkbook').then(r => normalize(r, ['data', 'rows', 'linkbook']));
 export const fetchTracks = () =>   api.get('/fetch-tracks').then(r => normalize(r, ['data', 'rows', 'tracks']));
 
