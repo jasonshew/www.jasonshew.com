@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle.jsx'; 
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -29,7 +30,7 @@ export default function Header() {
         {/* Right side buttons */}
         <div className="flex items-center gap-3">
           {/* If you re-enable theme toggle: <ThemeToggle /> */}
-           <ThemeToggle /> 
+          <ThemeToggle /> 
           <button
             className="menu-toggle md:hidden text-2xl"
             id="menu-toggle"
