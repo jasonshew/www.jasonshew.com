@@ -6,7 +6,7 @@ const api = axios.create({ baseURL: API_BASE });
 
 
 export const fetchCheckins = async () => {
-  const res = await api.get('/fetch-checkins');       
+  const res = await api.get('/fetch-checkins.js');       
   const payload = res.data;
   // Ensure we always return an array
   if (Array.isArray(payload)) return payload;
