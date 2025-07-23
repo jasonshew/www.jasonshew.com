@@ -8,7 +8,9 @@ export default function Checkins() {
 
       <section id="checkins" className="prose dark:prose-invert max-w-none">
         <h1>Check-ins</h1>
-        <div id="loading">Loading…</div>
+          <div id="loading">
+            <span className="dots">Loading...</span>
+          </div>
         <div id="checkins-list" />
       </section>
 

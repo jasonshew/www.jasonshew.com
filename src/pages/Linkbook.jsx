@@ -8,7 +8,7 @@ export default function Linkbook() {
 
       <section id="linkbook" className="prose dark:prose-invert max-w-none">
         <h1>Linkbook</h1>
-        <div id="loading"><span class="dots">Loading...</span></div>
+        <div id="loading"><span className="dots">Loading...</span></div>
         <div id="links-list"></div>
       </section>
 
