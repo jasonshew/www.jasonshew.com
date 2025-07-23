@@ -14,11 +14,15 @@ export default function GoToTop() {
 
   return (
     <button
-      className="fixed bottom-8 right-8 z-50 p-3 rounded-full shadow bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+      className="fixed z-50 right-10 bottom-6 cursor-pointer text-center"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      aria-label="Go to top"
+      aria-label="Back to top"
     >
-      ↑
+      <img
+        src="/images/topicon.svg"
+        alt="Back to Top"
+        className="logo-rotation h-9 w-9"
+      />
     </button>
   );
 }

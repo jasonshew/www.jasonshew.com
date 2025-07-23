@@ -19,7 +19,7 @@ export default function Header() {
         <div className="logo flex items-center gap-2">
           <Link to="/" onClick={close} className="flex items-center gap-2">
             <img
-              src="/assets/images/shew-logo.png"
+              src="/images/shew-logo.png"
               alt="Site Logo"
               className="h-8 w-auto"
             />
