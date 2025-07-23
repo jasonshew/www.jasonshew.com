@@ -5,7 +5,13 @@ export default function ThemeToggle() {
   const icon = theme === 'system' ? '🌓' : theme === 'dark' ? '🌙' : '☀️';
 
   return (
-    <button id="theme-toggle" className="toggle-btn" onClick={cycle} title={`Theme: ${theme}`}>
+    <button
+      id="theme-toggle"
+      className="toggle-btn"
+      onClick={cycle}
+      title={`Theme: ${theme}`}
+      aria-label="Toggle theme"
+    >
       {icon}
     </button>
   );

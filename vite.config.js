@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080', // change to your PHP/Express server
+        target: 'http://localhost:8080', // change to your backend
         changeOrigin: true
       }
     }

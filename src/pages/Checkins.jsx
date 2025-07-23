@@ -15,18 +15,18 @@ export default function Checkins() {
       <Helmet>
         <title>Checkins</title>
       </Helmet>
-      <section className="checkins-page">
-        <h1>Checkins</h1>
-        {err && <div className="error">Error: {err}</div>}
+      <section className="checkins-page prose dark:prose-invert">
+        <h1 className="text-3xl font-bold mb-6">Checkins</h1>
+        {err && <div className="text-red-600 dark:text-red-400">Error: {err}</div>}
         {!rows && !err && <div id="loading">Loading<span className="dots">...</span></div>}
         {rows && rows.length === 0 && <p>No checkins yet.</p>}
         {rows && rows.length > 0 && (
           <ul className="checkins-list">
             {rows.map(item => (
               <li key={item.id} className="checkin-entry">
-                <div className="checkin-placename">{item.place_name || 'Private Premises'}</div>
-                <div className="checkin-address">{item.address}</div>
-                <time className="checkin-timestamp">{item.timestamp}</time>
+                <div className="checkin-placename font-medium">{item.place_name || 'Private Premises'}</div>
+                <div className="checkin-address text-sm text-gray-600 dark:text-gray-400">{item.address}</div>
+                <time className="checkin-timestamp block mt-1 text-xs text-gray-500">{item.timestamp}</time>
               </li>
             ))}
           </ul>

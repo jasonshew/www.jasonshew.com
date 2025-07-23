@@ -6,9 +6,9 @@ export default function About() {
       <Helmet>
         <title>About</title>
       </Helmet>
-      <section className="about-page">
-        <h1>About</h1>
-        <p>Content coming soon.</p>
+      <section className="about-page prose dark:prose-invert">
+        <h1 className="text-3xl font-bold mb-6">About</h1>
+        <p></p>
       </section>
     </>
   );

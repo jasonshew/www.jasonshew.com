@@ -6,9 +6,9 @@ export default function Uses() {
       <Helmet>
         <title>Uses</title>
       </Helmet>
-      <section className="uses-page">
-        <h1>Uses</h1>
-        <p>Content coming soon.</p>
+      <section className="uses-page prose dark:prose-invert">
+        <h1 className="text-3xl font-bold mb-6">Uses</h1>
+        <p></p>
       </section>
     </>
   );

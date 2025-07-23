@@ -6,9 +6,9 @@ export default function Home() {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <section className="home-page">
-        <h1>Home</h1>
-        <p>Welcome to the React version of your site.</p>
+      <section className="home-page prose dark:prose-invert">
+        <h1 className="text-3xl font-bold mb-6">Home</h1>
+        <p>Welcome to the Tailwind-converted React site.</p>
       </section>
     </>
   );

@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom layer examples (you can extend) */
+@layer components {
+  .page-content { @apply max-w-3xl mx-auto px-4 py-8; }
+  .site-footer { @apply text-center text-sm text-gray-500 py-6 border-t border-gray-200 dark:border-gray-700; }
+  .nav-container { @apply flex items-center justify-between px-4 py-3 max-w-5xl mx-auto; }
+  .nav-menu { @apply hidden md:block; }
+  .nav-menu.active { @apply block; }
+  .nav-menu ul { @apply flex flex-col md:flex-row gap-4 md:gap-6; }
+  .menu-toggle { @apply md:hidden text-2xl; }
+  .site-title { @apply text-xl font-semibold; }
+  .toggle-btn { @apply ml-4 text-xl; }
+  .checkins-list { @apply space-y-4; }
+  .checkin-entry { @apply border border-gray-200 dark:border-gray-700 rounded-lg p-4; }
+  #loading { @apply italic text-gray-500; }
+}

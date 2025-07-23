@@ -11,6 +11,7 @@ export function useThemeToggle() {
         ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
         : t;
       document.documentElement.dataset.theme = resolved;
+      document.documentElement.classList.toggle('dark', resolved === 'dark');
     };
 
     apply(theme);
@@ -22,7 +23,8 @@ export function useThemeToggle() {
     return () => mq.removeEventListener('change', listener);
   }, [theme]);
 
-  const cycle = () => setTheme(prev => prev === 'system' ? 'light' : prev === 'light' ? 'dark' : 'system');
+  const cycle = () =>
+    setTheme(prev => prev === 'system' ? 'light' : prev === 'light' ? 'dark' : 'system');
 
   return { theme, cycle };
 }

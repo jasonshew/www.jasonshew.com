@@ -4,7 +4,7 @@ export default function GoToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 100);
+    const onScroll = () => setVisible(window.scrollY > 150);
     window.addEventListener('scroll', onScroll);
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
@@ -14,8 +14,7 @@ export default function GoToTop() {
 
   return (
     <button
-      id="go-to-top"
-      style={{ position: 'fixed', bottom: '2rem', right: '2rem', zIndex: 999 }}
+      className="fixed bottom-8 right-8 z-50 p-3 rounded-full shadow bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label="Go to top"
     >
