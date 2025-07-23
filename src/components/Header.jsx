@@ -29,6 +29,7 @@ export default function Header() {
         {/* Right side buttons */}
         <div className="flex items-center gap-3">
           {/* If you re-enable theme toggle: <ThemeToggle /> */}
+           <ThemeToggle /> 
           <button
             className="menu-toggle md:hidden text-2xl"
             id="menu-toggle"
