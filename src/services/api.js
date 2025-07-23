@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_BASE = import.meta.env.VITE_API_BASE || 'hhttps://api.shewtopia.com/jshewblogapi/fetch';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://api.shewtopia.com/jshewblogapi/fetch';
 
 
 const api = axios.create({ baseURL: API_BASE });
